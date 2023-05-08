@@ -25,7 +25,7 @@ The setups steps expect following libraries/ tools installed on your system.
 
 Check out the repository
 ```
-git clone git@github.com:organization/project-name.git
+git clone git@github.com:truongdodang/minesweeper.git
 ```
 
 Go to the repository
