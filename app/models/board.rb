@@ -13,4 +13,11 @@ class Board < ApplicationRecord
     only_integer: true, greater_than: 0, less_than_or_equal_to: ->(board) { board.width * board.height }
   }, if: -> { width && width.positive? && height && height.positive? }
 
+  def self.search(term)
+    if term
+      where('name ILIKE ? OR creator_email ILIKE ?', "%#{term}%", "%#{term}%")
+    else
+      all
+    end
+  end
 end
