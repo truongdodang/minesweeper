@@ -1,17 +1,19 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "boards/show", type: :view do
+RSpec.describe 'boards/show', type: :view do
   before(:each) do
     assign(:board, Board.create!(
-      creator_email: "Creator Email",
-      name: "Name",
-      width: 2,
-      height: 3,
-      mines_num: 4
-    ))
+                     creator_email: 'Creator Email',
+                     name: 'Name',
+                     width: 2,
+                     height: 3,
+                     mines_num: 4
+                   ))
   end
 
-  it "renders attributes in <p>" do
+  it 'renders attributes in <p>' do
     render
     expect(rendered).to match(/Creator Email/)
     expect(rendered).to match(/Name/)
