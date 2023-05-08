@@ -1,7 +1,14 @@
-<div class="mx-auto md:w-2/3 w-full">
-  <h1 class="font-bold text-4xl">New board</h1>
+<div class="w-full flex flex-col">
+  <div>
+    <%= link_to '< Back to home', home_path, class: "rounded-lg py-3 px-5 bg-gray-200 inline-block font-medium" %>
+    <%= link_to 'View all generated boards', boards_path, class: "rounded-lg py-3 px-5 bg-gray-200 inline-block font-medium" %>
+  </div>
 
-  <%= render "form", board: @board %>
+  <div class="my-5">
+    <h1 class="font-bold text-4xl">New board</h1>
+  </div>
 
-  <%= link_to 'Back to boards', boards_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  <div class="overflow-auto">
+    <%= render "form", board: @board %>
+  </div>
 </div>

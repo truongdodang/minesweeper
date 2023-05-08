@@ -12,7 +12,14 @@
   </head>
 
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
+    <% flash.each do |type, msg| %>
+      <p class="w-full py-2 px-3 font-medium rounded-lg inline-block text-center <%= type == 'alert' ? 'bg-red-50 text-red-500' : 'bg-green-50 text-green-500' %>">
+        <%= msg %>
+      </p>
+    <% end %>
+
+    <main class="container mx-auto p-5 flex h-screen">
+
       <%= yield %>
     </main>
   </body>

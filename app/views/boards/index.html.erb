@@ -1,14 +1,33 @@
-<div class="w-full">
-  <% if notice.present? %>
-    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+<div class="w-full flex flex-col">
+  <div>
+    <%= link_to '< Back to home', home_path, class: "rounded-lg py-3 px-5 bg-gray-200 inline-block font-medium" %>
+    <%= link_to 'New board', root_path, class: "rounded-lg py-3 px-5 bg-green-600 text-white inline-block font-medium" %>
+  </div>
+
+  <div class="my-5">
+    <h1 class="font-bold text-4xl">All boards</h1>
+  </div>
+
+  <div class="my-5 text-right">
+    <%= form_tag(boards_path, method: :get) do %>
+      <%= text_field_tag :term, params[:term], placeholder: 'by name or email...' %>
+      <%= submit_tag 'Search', class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+    <% end %>
+  </div>
+
+  <div id="boards" class="overflow-auto">
+    <% if @boards.length > 0 %>
+      <% @boards.each do |board| %>
+        <%= render partial: 'shared/board', locals: { board: board } %>
+      <% end %>
+    <% else %>
+      (No data available)
+    <% end %>
+  </div>
+
+  <% if @boards.length > 0 %>
+    <div class="my-5 text-blue-600 text-center">
+      <%== pagy_nav(@pagy) %>
+    </div>
   <% end %>
-
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Boards</h1>
-    <%= link_to 'New board', new_board_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
-  </div>
-
-  <div id="boards" class="min-w-full">
-    <%= render @boards %>
-  </div>
 </div>

@@ -13,6 +13,12 @@ module.exports = {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
     },
+    minWidth: {
+      '8': '2rem',
+    },
+    minHeight: {
+      '8': '2rem',
+    }
   },
   plugins: [
     require('@tailwindcss/forms'),

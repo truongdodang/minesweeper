@@ -1,0 +1,17 @@
+<div id="<%= dom_id board %>">
+  <div class="flex justify-between items-center">
+    <div class="text-blue-500 pr-8 text-xl">
+      <%= link_to board do %>
+        <%= board.name %>
+      <% end %>
+    </div>
+
+    <div class="italic">
+      <%= time_ago_in_words(board.created_at) %>
+    </div>
+  </div>
+      <div>
+      <%= board.creator_email %>
+    </div>
+  <hr class="my-5">
+</div>
