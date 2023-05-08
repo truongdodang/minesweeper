@@ -7,6 +7,8 @@ Also, you can delete a board, and view all or recently generated boards.
 
 <br>
 
+Demo here: https://truong-minesweeper.herokuapp.com
+
 ## Getting Started
 
 ### Prerequisites
